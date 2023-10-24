@@ -20,7 +20,9 @@ public class BoardController {
     }
 
     @GetMapping("/list")
-    public String PostList(){
+    public String PostList(Model model){
+
+        model.addAttribute("list",boardService.boardList());
         return "Boardlist";
     }
 
