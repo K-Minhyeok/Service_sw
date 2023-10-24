@@ -31,7 +31,7 @@ public class BoardController {
 
     @PostMapping("/board/writeact")
     public String boardWriteAct(Board board){
-    boardService.write(board);
+        boardService.write(board);
         return "";
     }
 
