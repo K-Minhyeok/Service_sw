@@ -1,0 +1,332 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap5" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+  
+  
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Create a column layout with Flexbox */
+    .row {
+      display: flex;
+    
+    }
+    
+    /* Left column (menu) */
+    .left {
+      flex: 25%;
+      padding: 15px 0;
+    }
+    
+    .left h2 {
+      padding-left: 8px;
+    }
+    
+    /* Right column (page content) */
+    .right {
+      flex: 75%;
+      padding: 0px;
+      margin-top:-50px;
+      
+    }
+    
+    /* Style the search box */
+    #mySearch {
+      width: 100%;
+      font-size: 14px;
+      padding: 11px;
+      border: 1px solid #ddd;
+    }
+    
+    /* Style the navigation menu inside the left column */
+    #myMenu {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    #myMenu li a {
+      padding: 12px;
+      text-decoration: none;
+      color: black;
+      font-size:14px;
+      display: block
+    }
+    
+    #myMenu li a:hover {
+      background-color: #eee;
+    }
+    </style>
+
+ 
+</head>
+<body>
+
+  
+
+	<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+
+	<nav class="site-nav">
+		<div class="container">
+			<div class="menu-bg-wrap">
+				<div class="site-navigation">
+					<div class="row g-0 align-items-center">
+						<div class="col-2">
+							<a href="index.html" class="logo m-0 float-start">HGUCC<span class="text-primary">.</span></a>
+						</div>
+						<div class="col-8 text-center">
+							<form action="#" class="search-form d-inline-block d-lg-none">
+								<input type="text" class="form-control" placeholder="Search...">
+								<span class="bi-search"></span>
+							</form>
+
+							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+								<li><a href="blog.html">Course Review</a></li>
+								<li><a href="forum.html">Forum</a></li>
+								<li><a href="category.html">Schedule</a></li>
+							</ul>
+						</div>
+						<div class="col-2 text-end">
+							<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
+								<span></span>
+							</a>
+							<form action="#" class="search-form d-none d-lg-inline-block">
+								<input type="text" class="form-control" placeholder="Search...">
+								<span class="bi-search"></span>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+
+
+  <div class="hero overlay inner-page py-5" style="background-color:#286386">
+    <div class="container">
+      <div class="row align-items-center justify-content-center text-center pt-5">
+        <div class="col-lg-6">
+          <h1 class="heading text-white mb-3" data-aos="fade-up">Course Reviews</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="review_container" style="width:1500px; margin-left:50px; margin-top:50px;">
+    <div class="row">
+      <!-- left part: course search -->
+      <div class="left" style="background-color:#bbb; ">
+        <h6 style="text-align:center; color:black;">Course</h6>
+        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+        <ul id="myMenu">
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+          <li><a href="#">PHP</a></li>
+          <li><a href="#">Python</a></li>
+          <li><a href="#">jQuery</a></li>
+          <li><a href="#">SQL</a></li>
+          <li><a href="#">Bootstrap</a></li>
+          <li><a href="#">Node.js</a></li>
+        </ul>
+      </div>
+      
+      <!-- right part: question list -->
+      <div class="right" style="background-color:white; padding-left:100px;margin-top:0px;">
+        <div class="section search-result-wrap">
+          <div class="container">
+            
+            <div class="row posts-entry">
+              <div class="col-lg-8">
+                
+                <div class="search-form-wrap mb-4" style="width:400px;">
+                  <form action="#" class="sidebar-search-form">
+                    <span class="bi-search"></span>
+                    <input type="text" class="form-control" id="s" placeholder="Type a keyword..">
+                  </form>
+                </div>
+
+                <button id="upload_question_button" style="margin-left:550px; font-size:0.9rem;">질문하기</button>
+              
+                <table class="blog-table">
+                  <tr>
+                      <td>
+                              <div>
+                                  <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                                  <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                                  <span id="commentCount">0</span>
+                                  <h6><a href="single.html"><b>시험 스타일은 어떤가요?</b></a></h6>
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+                              </div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                              <div>
+                                  <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                                  <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                                  <span id="commentCount">0</span>
+                                  <h6><a href="single.html"><b>발표가 있나요?</b></a></h6>
+                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+                              </div>
+                         
+                      </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        
+                            <div>
+                                <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                                <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                                <span id="commentCount">0</span>
+                                <h6><a href="single.html"><b>발표가 있나요?</b></a></h6>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+                            </div>
+                      
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                     
+                          <div>
+                              <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                              <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                              <span id="commentCount">0</span>
+                              <h6><a href="single.html"><b>발표가 있나요?</b></a></h6>
+                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+                          </div>
+                     
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                        <div>
+                            <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                            <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                            <span id="commentCount">0</span>
+                            <h6><a href="single.html"><b>발표가 있나요?</b></a></h6>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+                        </div>
+                </td>
+            </tr>     
+          </table>
+          
+                
+            
+      
+                <div class="row text-start pt-5 border-top">
+                  <div class="col-md-12">
+                    <div class="custom-pagination">
+                      <span>1</span>
+                      <a href="#">2</a>
+                      <a href="#">3</a>
+                      <a href="#">4</a>
+                      <span>...</span>
+                      <a href="#">15</a>
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // 좋아요와 댓글 수를 추적하기 위한 변수
+    let likeCount = 0;
+    let commentCount = 0;
+
+    // HTML 요소 가져오기
+    const likeButton = document.getElementById("likeButton");
+    const likeCountElement = document.getElementById("likeCount");
+    const commentButton = document.getElementById("commentButton");
+    const commentCountElement = document.getElementById("commentCount");
+
+    // 좋아요 버튼 클릭 시
+    likeButton.addEventListener("click", () => {
+        likeCount++;
+        likeCountElement.textContent = likeCount;
+    });
+
+    
+  </script>
+  
+
+    <!-- Preloader -->
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+
+    <!--course search script  -->
+    <script>
+      function myFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("mySearch");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myMenu");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/tiny-slider.js"></script>
+
+    <script src="js/flatpickr.min.js"></script>
+
+
+    <script src="js/aos.js"></script>
+    <script src="js/glightbox.min.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/custom.js"></script>
+
+    
+  </body>
+  </html>
