@@ -1,4 +1,6 @@
-
+<!-- /*
+* 요것은 강의 리뷰 페이지
+*/ -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -80,7 +82,6 @@
     }
     </style>
 
- 
 </head>
 <body>
 
@@ -101,7 +102,7 @@
 				<div class="site-navigation">
 					<div class="row g-0 align-items-center">
 						<div class="col-2">
-							<a href="index.html" class="logo m-0 float-start">HGUCC<span class="text-primary">.</span></a>
+							<a href="main.html" class="logo m-0 float-start">HGUCC<span class="text-primary">.</span></a>
 						</div>
 						<div class="col-8 text-center">
 							<form action="#" class="search-form d-inline-block d-lg-none">
@@ -266,6 +267,31 @@
     </div>
   </div>
   
+<!-- footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <!-- 
+            **==========
+            NOTE: 
+            Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
+            **==========
+          -->
+              <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a> <!-- License information: https://untree.co/license/ --></p>
+            </div>
+        </div>
+      </div> <!-- /.container -->
+  </footer> <!-- /.site-footer -->
+
+  <!-- Preloader -->
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
   <script>
     // 좋아요와 댓글 수를 추적하기 위한 변수
     let likeCount = 0;
@@ -282,20 +308,8 @@
         likeCount++;
         likeCountElement.textContent = likeCount;
     });
-
-    
   </script>
   
-
-    <!-- Preloader -->
-    <div id="overlayer"></div>
-    <div class="loader">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-
-
     <!--course search script  -->
     <script>
       function myFunction() {
