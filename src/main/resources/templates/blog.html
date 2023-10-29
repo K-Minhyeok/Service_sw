@@ -16,8 +16,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-
-  
+  <!-- bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   
   <link rel="stylesheet" href="css/style.css">
 
@@ -80,10 +80,40 @@
     #myMenu li a:hover {
       background-color: #eee;
     }
+
+    
+    
+    /* 페이지 버튼 스타일 */
+    .pagination {
+      list-style: none;
+      display: flex;
+      justify-content: center; /* 가운데 정렬 */
+      gap: 20px; /* 버튼 간 간격 설정 */
+    }
+
+    .pagination li {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      text-align:center;
+      
+    
+    }
+
+    .pagination a {
+      text-decoration: none;
+    
+      /* 페이지 버튼 배경색 설정 */
+      color: black;
+      border-radius: 5px; /* 버튼 모서리를 둥글게 설정 */
+    }
     </style>
 
 </head>
 <body>
+
+  <!-- bootstrap link -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
   
 
@@ -150,15 +180,15 @@
         <h6 style="text-align:center; color:black;">Course</h6>
         <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
         <ul id="myMenu">
-          <li><a href="#">HTML</a></li>
-          <li><a href="#">CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-          <li><a href="#">PHP</a></li>
-          <li><a href="#">Python</a></li>
-          <li><a href="#">jQuery</a></li>
-          <li><a href="#">SQL</a></li>
-          <li><a href="#">Bootstrap</a></li>
-          <li><a href="#">Node.js</a></li>
+          <li><a href="#">강의1</a></li>
+          <li><a href="#">강의2</a></li>
+          <li><a href="#">강의3</a></li>
+          <li><a href="#">강의4</a></li>
+          <li><a href="#">강의5</a></li>
+          <li><a href="#">강의6</a></li>
+          <li><a href="#">강의7</a></li>
+          <li><a href="#">강의8</a></li>
+          <li><a href="#">강의9</a></li>
         </ul>
       </div>
       
@@ -179,66 +209,193 @@
 
                 <button id="upload_question_button" style="margin-left:550px; font-size:0.9rem;">질문하기</button>
               
-                <table class="blog-table">
-                  <tr>
+
+                <!-- 질문 list 여기에 들어감 -->
+                <!-- 현재는 예시를 넣어둔 상태. 나중에는 고정 질문 5개만 남기고, 추가로 올라오는 질문 list는 db를 통해 가져옴 -->
+                <table class="blog-table" id="questionTable">
+                  <!-- 고정질문1 -->
+                  <tr class="fixed-question">
                       <td>
                               <div>
                                   <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
                                   <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
                                   <span id="commentCount">0</span>
-                                  <h6><a href="single.html"><b>시험 스타일은 어떤가요?</b></a></h6>
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+                                  <h6><a href="single.html"><b>📌시험 스타일은 어떤가요?</b></a></h6>
+                                  <p>내용 중 첫 번째 줄 미리보기</p>
                               </div>
                       </td>
                   </tr>
-                  <tr>
+                  <!-- 고정질문2 -->
+                  <tr class="fixed-question">
                       <td>
                               <div>
                                   <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
                                   <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
                                   <span id="commentCount">0</span>
-                                  <h6><a href="single.html"><b>발표가 있나요?</b></a></h6>
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+                                  <h6><a href="single.html"><b>📌발표가 있나요?</b></a></h6>
+                                  <p>내용 중 첫 번째 줄 미리보기</p>
                               </div>
-                         
                       </td>
                   </tr>
-                  <tr>
+                  <!-- 고정질문3 -->
+                  <tr class="fixed-question">
                     <td>
                         
                             <div>
                                 <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
                                 <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
                                 <span id="commentCount">0</span>
-                                <h6><a href="single.html"><b>발표가 있나요?</b></a></h6>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+                                <h6><a href="single.html"><b>📌팀프로젝트는 어떤식으로 진행되나요?</b></a></h6>
+                                <p>내용 중 첫 번째 줄 미리보기</p>
+                            </div>
+                      
+                    </td>
+                  </tr>
+                  <!-- 고정질문4 -->
+                  <tr class="fixed-question">
+                    <td>
+                            <div>
+                                <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                                <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                                <span id="commentCount">0</span>
+                                <h6><a href="single.html"><b>📌교수님의 강의 스타일이 궁금해요!</b></a></h6>
+                                <p>내용 중 첫 번째 줄 미리보기</p>
                             </div>
                       
                     </td>
                 </tr>
-                <tr>
+                <!-- 고정질문5 -->
+                <tr class="fixed-question">
                   <td>
-                     
                           <div>
                               <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
                               <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
                               <span id="commentCount">0</span>
-                              <h6><a href="single.html"><b>발표가 있나요?</b></a></h6>
-                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+                              <h6><a href="single.html"><b>📌과제가 많나요?</b></a></h6>
+                              <p>내용 중 첫 번째 줄 미리보기</p>
                           </div>
-                     
                   </td>
-              </tr>
+              </tr>  
               <tr>
                 <td>
                         <div>
                             <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
                             <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
                             <span id="commentCount">0</span>
-                            <h6><a href="single.html"><b>발표가 있나요?</b></a></h6>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+                            <h6><a href="single.html"><b>질문1</b></a></h6>
+                            <p>내용 중 첫 번째 줄 미리보기</p>
                         </div>
                 </td>
+            </tr>  
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문2</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문3</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문4</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문5</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문6</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문7</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문8</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문9</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문10</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문11</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
             </tr>     
           </table>
           
@@ -247,25 +404,109 @@
       
                 <div class="row text-start pt-5 border-top">
                   <div class="col-md-12">
-                    <div class="custom-pagination">
-                      <span>1</span>
-                      <a href="#">2</a>
-                      <a href="#">3</a>
-                      <a href="#">4</a>
-                      <span>...</span>
-                      <a href="#">15</a>
+                    <div>
+                        <ul class="pagination justify-content-center">
+                          <li class="page-item"><a class="page-link" href="javascript:void(0);" id="prevPage">Prev</a></li>
+                          <div id="pageNumbers" >
+                            <!-- <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li> -->
+                          </div>
+                          <li class="page-item"><a class="page-link" href="javascript:void(0);" id="nextPage">Next</a></li>
+                        </ul>
                     </div>
                   </div>
                 </div>
-      
               </div>
-      
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  
+<script>
+    // 현재 페이지와 한 번에 표시할 질문 수를 추적하는 변수
+    let currentPage = 1;
+    const questionsPerPage = 7; //한페이지당 질문 7개씩 보이게.
+
+    // 페이지네이션 관련 HTML 요소 가져오기
+    const questionTable = document.getElementById("questionTable");
+    const prevPage = document.getElementById("prevPage");
+    const nextPage = document.getElementById("nextPage");
+    const pageNumbers = document.getElementById("pageNumbers");
+
+    // Previous 버튼 클릭 시
+    prevPage.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updateQuestionVisibility();
+        scrollToTop(); // 페이지를 맨 위로 스크롤
+      }
+    });
+
+    // Next 버튼 클릭 시
+    nextPage.addEventListener("click", () => {
+      const maxPage = Math.ceil(questionTable.rows.length / questionsPerPage);
+      if (currentPage < maxPage) {
+        currentPage++;
+        updateQuestionVisibility();
+        scrollToTop(); // 페이지를 맨 위로 스크롤
+      }
+    });
+
+    // 질문 가시성 업데이트 함수
+    function updateQuestionVisibility() {
+      for (let i = 0; i < questionTable.rows.length; i++) {
+        const row = questionTable.rows[i];
+        if (i >= (currentPage - 1) * questionsPerPage && i < currentPage * questionsPerPage) {
+          row.style.display = "table-row";
+        } else {
+          row.style.display = "none";
+        }
+      }
+      updatePageNumbers();
+    }
+
+    // 페이지 번호 업데이트 함수
+    function updatePageNumbers() {
+      const maxPage = Math.ceil(questionTable.rows.length / questionsPerPage);
+      let pageNumbersHTML = '';
+      for (let i = 1; i <= maxPage; i++) {
+        if (i === currentPage) {
+          pageNumbersHTML += `<li class="page-item"><a class="page" href="javascript:void(0);" data-page="${i}">${i}</a></li>`;
+        } else {
+          pageNumbersHTML += `<li class="page-item"><a class="page" href="javascript:void(0);" data-page="${i}">${i}</a></li>`;
+        }
+      }
+      //<li class="page-item"><a class="page-link" href="#">1</a></li>
+      //<a class="page-link" href="#">2</a>
+      pageNumbers.innerHTML = pageNumbersHTML;
+
+      // 각 페이지 번호를 클릭하여 해당 페이지로 이동
+      const pageLinks = pageNumbers.querySelectorAll(".page");
+      pageLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          const selectedPage = parseInt(link.getAttribute("data-page"));
+          currentPage = selectedPage;
+          updateQuestionVisibility();
+          scrollToTop(); // 페이지를 맨 위로 스크롤
+        });
+      });
+    }
+
+     // 페이지를 맨 위로 스크롤하는 함수
+    function scrollToTop() {
+      window.scrollTo(0, 0);
+    }
+
+
+    // 초기 페이지 로드 시 첫 번째 페이지 질문만 표시
+    updateQuestionVisibility();
+  </script>
+
   
 <!-- footer -->
 <footer class="site-footer">
