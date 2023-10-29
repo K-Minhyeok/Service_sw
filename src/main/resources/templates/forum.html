@@ -2,7 +2,7 @@
 * 요것은 게시글 목록 페이지
 */ -->
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,55 +92,18 @@
               <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
             </form>
           </div>
-          
-          <div class="blog-entry d-flex blog-entry-search-item">
-            <div>
-              <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
-              <h5><a href="post.html">시험 스타일은 어떤가요?</a></h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
-             
-            </div>
-          </div>
 
-          <div class="blog-entry d-flex blog-entry-search-item">
-            
-            <div>
-              <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
-              <h5><a href="post.html">발표가 있나요?</a></h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
-             
-            </div>
-          </div>
 
-          <div class="blog-entry d-flex blog-entry-search-item">
-           
-            <div>
-              <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
-              <h5><a href="post.html">ppt를 학생들에게 제공해주시나요?</a></h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
-             
-            </div>
-          </div>
+            <div class="blog-entry d-flex blog-entry-search-item" th:each="board : ${list}">
 
-          <div class="blog-entry d-flex blog-entry-search-item">
-  
-            <div>
-              <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
-              <h5><a href="post.html">팀프로젝트 많이 빡센가요?</a></h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
-              
-            </div>
-          </div>
+                <div>
+                    <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
+                    <h5 th:text="${board.title}"><a href="post.html"></a></h5>
+                    <p th:text="${board.content}"></p>
 
-          <div class="blog-entry d-flex blog-entry-search-item">
-           
-            <div>
-              <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
-              <h5><a href="post.html">코딩을 해본적이 없는데 들어도 괜찮을까요?</a></h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
-              
+                </div>
             </div>
-          </div>
+
 
           <div class="row text-start pt-5 border-top">
             <div class="col-md-">

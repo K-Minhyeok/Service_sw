@@ -25,8 +25,6 @@ public class BoardController {
         return "index";
     }
 
-    //chcck commit
-
     @GetMapping("/forum.html")
     public String PostList(Model model){
 
@@ -54,9 +52,11 @@ public class BoardController {
     }
 
 
-    @PostMapping("/board/writeact")
+    @PostMapping("/writeact")
     public String boardWriteAct(Board board){
         boardService.write(board);
+
+
         return "";
     }
 
