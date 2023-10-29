@@ -1,5 +1,5 @@
 <!-- /*
-* 요것은 문짝(메인) 페이지
+* 요것은 게시글 작성 페이지
 */ -->
 <!doctype html>
 <html lang="en">
@@ -29,11 +29,17 @@
 
 	<link rel="stylesheet" href="css/flatpickr.min.css">
 
+	<style>
+		/* 파일 첨부 버튼 */
+		#output {
+			display: block;
+			white-space: pre-wrap;
+		}
+	</style>
 
-	<title>Blogy &mdash; Free Bootstrap 5 Website Template by Untree.co</title>
+	<title>HGUCC &mdash; Free Bootstrap 5 Website Template by Untree.co</title>
 </head>
 <body>
-
 	<div class="site-mobile-menu site-navbar-target">
 		<div class="site-mobile-menu-header">
 			<div class="site-mobile-menu-close">
@@ -78,46 +84,71 @@
 		</div>
 	</nav>
 
-	<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('images/main-banner.png');">
+	<div class="hero overlay inner-page py-5" style="background-color:#286386">
 		<div class="container">
-			<div class="row same-height justify-content-center">
-				<div class="col-md-6">
-					<div class="post-entry text-center">
-						<h1 class="mb-4">Main page</h1>
+			<div class="row align-items-center justify-content-center text-center pt-5">
+				<div class="col-lg-6">
+					<h1 class="heading text-white mb-3" data-aos="fade-up">Write</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="section">
+		<div class="container" style="width:1500px; margin-left:50px; margin-top:50px;">
+			<div class="row">
+				<div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+					<div class="contact-info">
+
+						<div class="address mt-2">
+							<i class="icon-room"></i>
+							<h4 class="mb-2">주의</h4>
+							<p>HGUCC has established and is operating community rules to create a community where anyone can happily paricipate.<br>In case of violation, the post may be deleted and use of the service may be restricted for a certain period of time.</p>
+						</div>
+
+						<div class="open-hours mt-4">
+							<i class="icon-clock-o"></i>
+							<h4 class="mb-2">*Political and social-related activities are prohibited</h4>
+							<p>
+								-Comments on or related to state agencies, political organiztions, media, and civic groups<br>-Acts that reveal to social issues such as race, origin, region, occupation, ideology, etc.<br>-Acts of using metaphors or slang that can be inferred from the above
+							</p>
+						</div>
+
+						<div class="email mt-4">
+							<i class="icon-envelope"></i>
+							<h4 class="mb-2">Promotion and sales-related activities prohibited</h4>
+							<p>-Postings that may directly or indirectly influence businesses, institutions, organiztions, or individuals regardless of whether they are for profit<br>-Viral promotions and mentions of names or words that may be suspected or expected to be related to the above</p>
+						</div>
+
+						<div class="phone mt-4">
+							<i class="icon-phone"></i>
+							<h4 class="mb-2">Prohibition of distribution of illegal footage.</h4>
+							<p>If toy post illegal footage, etc., yoy may be deleted and your use of the service may be permanently restricted in accordance with the Telecommunications Business Act, and you may be punished in accordance with relevant laws.</p>
+						</div>
+
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="section sec-halfs py-0">
-		<div class="container">
-			<div class="half-content d-lg-flex align-items-stretch">
-				<div class="img" style="background-image: url('images/main-banner2.png')" data-aos="fade-in" data-aos-delay="100">
-					
-				</div>
-				<div class="text">
-					<h2 class="heading text-primary mb-3">uliga nugunyago mul-eusindamyeon</h2>
-					<p class="mb-4">daedabhae deulineunge injisangjeong</p>
-					<p><a href="#" class="btn btn-outline-primary py-2">Read more</a></p>
-				</div>
-			</div>
-
-			<div class="half-content d-lg-flex align-items-stretch">
-				<div class="img order-md-2" style="background-image: url('images/main-banner3.jpg')" data-aos="fade-in">
-					
-				</div>
-				<div class="text">
-					<h2 class="heading text-primary mb-3">i sesang-ui pagoeleul maggi wihae</h2>
-					<p class="mb-4">i segyeui pyeonghwaleul jikigi wihae</p>
-					<p><a href="#" class="btn btn-outline-primary py-2">Read more</a></p>
+				<div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+					<form action="#">
+						<div class="row">
+							<div class="col-12 mb-3">
+								<input type="text" class="form-control" placeholder="post title">
+							</div>
+							<div class="col-12 mb-3">
+								<textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Enter the content."></textarea>
+							</div>
+							<div class="col-12">
+								<input type="file" id="file" multiple accept="image/png, image/jpeg">
+								<input type="submit" value="complete" class="btn btn-primary">
+								<output id="output"></output>
+							</div>
+							
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-
-	</div>
-
-
+	</div> <!-- /.untree_co-section -->
 
 	<!-- footer -->
 	<footer class="site-footer">
@@ -144,6 +175,16 @@
     	</div>
     </div>
 
+	<script>
+		//파일 첨부 시 파일 이름 보여주기
+		const input = document.getElementById('file')
+		const output = document.getElementById('output')
+		
+		document.getElementById('file').addEventListener('input', (event) => {
+			const files = event.target.files
+			output.textContent = Array.from(files).map(file => file.name).join('\n')
+		})
+	</script>
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/tiny-slider.js"></script>
@@ -158,5 +199,5 @@
     <script src="js/custom.js"></script>
 
     
-	</body>
-</html>
+  </body>
+  </html>

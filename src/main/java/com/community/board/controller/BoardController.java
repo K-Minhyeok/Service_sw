@@ -16,20 +16,41 @@ public class BoardController {
 
     @GetMapping("/")
     public String boardMain(){
+
+        return "index";
+    }
+    @GetMapping("index.html")
+    public String boardMain_re(){
+
         return "index";
     }
 
-    @GetMapping("/list")
+    @GetMapping("/forum.html")
     public String PostList(Model model){
 
         model.addAttribute("list",boardService.boardList());
-        return "Boardlist";
+        return "forum";
+    }
+
+    @GetMapping("forum/write")
+    public String WritePost(){
+        return "write";
+    }
+
+
+
+    @GetMapping("/blog.html")
+    public String review(){
+
+        return "blog";
     }
 
     @GetMapping("/write")
-    public String WritePost(){
-        return "BoardWrite";
+    public String writePost(){
+
+        return "write";
     }
+
 
     @PostMapping("/board/writeact")
     public String boardWriteAct(Board board){
