@@ -52,9 +52,11 @@ public class BoardController {
     }
 
 
-    @PostMapping("/board/writeact")
+    @PostMapping("/writeact")
     public String boardWriteAct(Board board){
         boardService.write(board);
+
+
         return "";
     }
 
