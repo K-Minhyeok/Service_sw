@@ -32,10 +32,10 @@ public class BoardController {
         return "forum";
     }
 
-    @GetMapping("forum/write")
-    public String WritePost(){
-        return "write";
-    }
+//    @GetMapping("forum/write")
+//    public String WritePost(){
+//        return "write";
+//    }
 
 
 

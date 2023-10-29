@@ -95,17 +95,16 @@
 
 
             <div class="blog-entry d-flex blog-entry-search-item" th:each="board : ${list}">
-
                 <div>
                     <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
-                    <h5 th:text="${board.title}"><a href="post.html"></a></h5>
+                    <a th:href="@{'/post/' + ${board.id}}"><h5 th:text="${board.title}"></h5></a>
                     <p th:text="${board.content}"></p>
-
                 </div>
             </div>
 
 
-          <div class="row text-start pt-5 border-top">
+
+            <div class="row text-start pt-5 border-top">
             <div class="col-md-">
               <div class="custom-pagination">
                 <span>1</span>
