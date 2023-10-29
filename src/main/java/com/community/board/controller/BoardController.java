@@ -25,6 +25,8 @@ public class BoardController {
         return "index";
     }
 
+    //chcck commit
+
     @GetMapping("/forum.html")
     public String PostList(Model model){
 
