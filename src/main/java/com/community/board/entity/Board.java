@@ -16,14 +16,14 @@ public class Board {
     private String title;
 
     private String content;
-    private Timestamp regDate;
+    private Timestamp reg_date;
 
     public Timestamp getRegDate() {
-        return regDate;
+        return reg_date;
     }
 
-    public void setRegDate(Timestamp regDate) {
-        this.regDate = regDate;
+    public void setRegDate(Timestamp reg_date) {
+        this.reg_date = reg_date;
     }
 
     public Integer getId() {
