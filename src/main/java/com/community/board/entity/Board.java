@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.criteria.CriteriaBuilder;
 
+import java.sql.Timestamp;
+
 @Entity
 public class Board {
     @Id
@@ -14,7 +16,15 @@ public class Board {
     private String title;
 
     private String content;
+    private Timestamp regDate;
 
+    public Timestamp getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(Timestamp regDate) {
+        this.regDate = regDate;
+    }
 
     public Integer getId() {
         return id;

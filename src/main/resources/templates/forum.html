@@ -98,7 +98,8 @@
 
             <div class="blog-entry d-flex blog-entry-search-item" th:each="board : ${list}">
                 <div>
-                    <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
+                    <span class="date" th:text="${#dates.format(board.regDate, 'yyyy-MM-dd HH:mm:ss')}"></span>
+                    <!--    span 에 regDate가 들어가게 만들어야한다.                 -->
                     <a th:href="@{'/post/' + ${board.id}}"><h5 th:text="${board.title}"></h5></a>
                     <p th:text="${board.content}"></p>
                 </div>
