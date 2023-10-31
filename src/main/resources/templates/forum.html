@@ -2,7 +2,7 @@
 * 요것은 게시글 목록 페이지
 */ -->
 <!doctype html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,19 +92,57 @@
               <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
             </form>
           </div>
-
-
-            <div class="blog-entry d-flex blog-entry-search-item" th:each="board : ${list}">
-                <div>
-                    <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
-                    <a th:href="@{'/post/' + ${board.id}}"><h5 th:text="${board.title}"></h5></a>
-                    <p th:text="${board.content}"></p>
-                </div>
+          
+          <div class="blog-entry d-flex blog-entry-search-item">
+            <div>
+              <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
+              <h5><a href="post01.html">시험 스타일은 어떤가요?</a></h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+             
             </div>
+          </div>
 
+          <div class="blog-entry d-flex blog-entry-search-item">
+            
+            <div>
+              <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
+              <h5><a href="post.html">발표가 있나요?</a></h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+             
+            </div>
+          </div>
 
+          <div class="blog-entry d-flex blog-entry-search-item">
+           
+            <div>
+              <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
+              <h5><a href="post.html">ppt를 학생들에게 제공해주시나요?</a></h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+             
+            </div>
+          </div>
 
-            <div class="row text-start pt-5 border-top">
+          <div class="blog-entry d-flex blog-entry-search-item">
+  
+            <div>
+              <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
+              <h5><a href="post.html">팀프로젝트 많이 빡센가요?</a></h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+              
+            </div>
+          </div>
+
+          <div class="blog-entry d-flex blog-entry-search-item">
+           
+            <div>
+              <span class="date">Apr. 14th, 2022 &bullet; <a href="#">Business</a></span>
+              <h5><a href="post.html">코딩을 해본적이 없는데 들어도 괜찮을까요?</a></h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nobis ea quis inventore vel voluptas.</p>
+              
+            </div>
+          </div>
+
+          <div class="row text-start pt-5 border-top">
             <div class="col-md-">
               <div class="custom-pagination">
                 <span>1</span>
@@ -117,7 +155,7 @@
             </div>
           </div>
 
-					<div class="col-md-12" style="margin-left:500px;"><p><a href="write" class="btn btn-outline-primary py-2">Write a new post</a></p></div>
+					<div class="col-md-12" style="margin-left:500px;"><p><a href="write.html" class="btn btn-outline-primary py-2">Write a new post</a></p></div>
 
         </div>
 
