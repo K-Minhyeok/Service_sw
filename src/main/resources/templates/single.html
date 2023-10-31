@@ -1,8 +1,5 @@
 <!-- /*
-* Template Name: Blogy
-* Template Author: Untree.co
-* Template URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
+코스 리뷰 질문 눌렀을 때 나오는 페이지
 */ -->
 <!doctype html>
 <html lang="en">
@@ -38,50 +35,49 @@
 <body>
 
 
+   <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+         <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+         </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+   </div>
 
-	<div class="site-mobile-menu site-navbar-target">
-		<div class="site-mobile-menu-header">
-			<div class="site-mobile-menu-close">
-				<span class="icofont-close js-menu-toggle"></span>
-			</div>
-		</div>
-		<div class="site-mobile-menu-body"></div>
-	</div>
+   <nav class="site-nav">
+      <div class="container">
+         <div class="menu-bg-wrap">
+            <div class="site-navigation">
+               <div class="row g-0 align-items-center">
+                  <div class="col-2">
+                     <a href="index.html" class="logo m-0 float-start">HGUCC<span class="text-primary">.</span></a>
+                  </div>
+                  <div class="col-8 text-center">
+                     <form action="#" class="search-form d-inline-block d-lg-none">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="bi-search"></span>
+                     </form>
 
-	<nav class="site-nav">
-		<div class="container">
-			<div class="menu-bg-wrap">
-				<div class="site-navigation">
-					<div class="row g-0 align-items-center">
-						<div class="col-2">
-							<a href="index.html" class="logo m-0 float-start">HGUCC<span class="text-primary">.</span></a>
-						</div>
-						<div class="col-8 text-center">
-							<form action="#" class="search-form d-inline-block d-lg-none">
-								<input type="text" class="form-control" placeholder="Search...">
-								<span class="bi-search"></span>
-							</form>
-
-							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-								<li><a href="blog.html">Course Review</a></li>
-								<li><a href="forum.html">Forum</a></li>
-								<li><a href="category.html">Schedule</a></li>
-							</ul>
-						</div>
-						<div class="col-2 text-end">
-							<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
-								<span></span>
-							</a>
-							<form action="#" class="search-form d-none d-lg-inline-block">
-								<input type="text" class="form-control" placeholder="Search...">
-								<span class="bi-search"></span>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</nav>
+                     <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+                        <li><a href="blog.html">Course Review</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                        <li><a href="category.html">Schedule</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-2 text-end">
+                     <a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
+                        <span></span>
+                     </a>
+                     <form action="#" class="search-form d-none d-lg-inline-block">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="bi-search"></span>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </nav>
 
 
 
@@ -104,7 +100,7 @@
     </div>
   </div>
 
-  <section class="section">
+  <section class="section"> 
     <div class="container">
 
       <div class="row blog-entries element-animate">
@@ -112,22 +108,21 @@
         <div class="col-md-12 col-lg-8 main-content">
 
           <div class="post-content-body">
-            <p>Title에 대한 답변</p>
-            <p>Title에 대한 답변</p>
-            <p>Title에 대한 답변</p>
-
+            <p style="margin-top:50px; font-size:1.3rem; color:black;">질문 내용</p>
+            
           </div>
-
+          
 
           <div class="pt-5 comment-wrap">
-            <h3 class="mb-5 heading">nn Comments</h3>
-            <ul class="comment-list">
+            <h3 class="mb-5 heading">Comments</h3>
+            <ul class="comment-list" class="comment-list">
               <li class="comment">
-                <div class="comment-body">
+                <div class="comment-body"> 
                   <h3>Jean Doe</h3>
                   <div class="meta">January 9, 2018 at 2:21pm</div>
-                  <p>댓글 1</p>
+                  <p>댓글 1 내용</p>
                   <p><a href="#" class="reply rounded">Reply</a></p>
+                  
                 </div>
               </li>
 
@@ -135,18 +130,18 @@
                 <div class="comment-body">
                   <h3>Jean Doe</h3>
                   <div class="meta">January 9, 2018 at 2:21pm</div>
-                  <p>댓글 2</p>
+                  <p>댓글 2 내용</p>
                   <p><a href="#" class="reply rounded">Reply</a></p>
                 </div>
 
-                <ul class="children">
+                <!-- <ul class="children">
                   <li class="comment">
                     <div class="comment-body">
                       <h3>Jean Doe</h3>
                       <div class="meta">January 9, 2018 at 2:21pm</div>
                       <p>대댓글 1</p>
                       <p><a href="#" class="reply rounded">Reply</a></p>
-                    </div>
+                    </div> 
 
 
                     <ul class="children">
@@ -161,7 +156,7 @@
                     </ul>
                   
                   </li>
-                </ul>
+                </ul> -->
               </li>
 
               <li class="comment">
@@ -201,6 +196,45 @@
       </div>
     </div>
   </section>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- jQuery 라이브러리를 추가 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    $(".reply").on("click", function(e) {
+      e.preventDefault();
+      var parentComment = $(this).closest(".comment");
+
+      // 대댓글 입력란이 이미 존재하지 않는 경우에만 생성
+      if (parentComment.find(".reply-form").length === 0) {
+        // 대댓글 입력란을 생성하고 표시
+        var replyForm = $("<div class='reply-form' style='margin-left:80px;'><textarea class='form-control' rows='3' placeholder='Write a reply'></textarea><button class='btn btn-primary post-reply'>Post Reply</button></div>");
+        parentComment.append(replyForm);
+
+        // "Post Reply" 버튼을 누를 때 대댓글을 저장하고 표시
+        parentComment.find(".post-reply").on("click", function() {
+          var replyText = $(this).prev().val();
+          if (replyText) {
+            var replyComment = "<div class='comment' style='margin-left:40px; color:black; '><div class='comment-body'><h3><span style='color: #009AE8;'>↪</span> Your Name</h3><div class='meta'>" + getCurrentDate() + "</div><p>" + replyText + "</p></div></div>";
+            //parentComment.after(replyComment);
+            parentComment.append(replyComment);
+            parentComment.find(".reply-form").remove(); // 입력란 삭제
+          }
+        });
+      }
+    });
+
+    function getCurrentDate() {
+      var now = new Date();
+      var month = now.toLocaleString('en-US', { month: 'long' });
+      return month + " " + now.getDate() + ", " + now.getFullYear() + " at " + now.toLocaleTimeString('en-US');
+    }
+  });
+  </script>
+
 
 
 
