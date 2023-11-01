@@ -2,7 +2,7 @@
 * 요것은 강의 리뷰 페이지
 */ -->
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,42 +18,42 @@
 
   <!-- bootstrap link -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  
+
   <link rel="stylesheet" href="css/style.css">
 
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
     }
-    
+
     * {
       box-sizing: border-box;
     }
-    
+
     /* Create a column layout with Flexbox */
     .row {
       display: flex;
-    
+
     }
-    
+
     /* Left column (menu) */
     .left {
       flex: 25%;
       padding: 15px 0;
     }
-    
+
     .left h2 {
       padding-left: 8px;
     }
-    
+
     /* Right column (page content) */
     .right {
       flex: 75%;
       padding: 0px;
       margin-top:-50px;
-      
+
     }
-    
+
     /* Style the search box */
     #mySearch {
       width: 100%;
@@ -61,14 +61,14 @@
       padding: 11px;
       border: 1px solid #ddd;
     }
-    
+
     /* Style the navigation menu inside the left column */
     #myMenu {
       list-style-type: none;
       padding: 0;
       margin: 0;
     }
-    
+
     #myMenu li a {
       padding: 12px;
       text-decoration: none;
@@ -76,13 +76,13 @@
       font-size:14px;
       display: block
     }
-    
+
     #myMenu li a:hover {
       background-color: #eee;
     }
 
-    
-    
+
+
     /* 페이지 버튼 스타일 */
     .pagination {
       list-style: none;
@@ -96,13 +96,13 @@
       margin: 0;
       padding: 0;
       text-align:center;
-      
-    
+
+
     }
 
     .pagination a {
       text-decoration: none;
-    
+
       /* 페이지 버튼 배경색 설정 */
       color: black;
       border-radius: 5px; /* 버튼 모서리를 둥글게 설정 */
@@ -115,7 +115,7 @@
   <!-- bootstrap link -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
-  
+
 
 	<div class="site-mobile-menu site-navbar-target">
 		<div class="site-mobile-menu-header">
@@ -173,33 +173,34 @@
     </div>
   </div>
 
-  <div class="review_container" style="width:1500px; margin-left:50px; margin-top:50px;">
-    <div class="row">
-      <!-- left part: course search -->
-      <div class="left" style="background-color:#bbb; ">
-        <h6 style="text-align:center; color:black;">Course</h6>
-        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
-        <ul id="myMenu">
-          <li><a href="#">강의1</a></li>
-          <li><a href="#">강의2</a></li>
-          <li><a href="#">강의3</a></li>
-          <li><a href="#">강의4</a></li>
-          <li><a href="#">강의5</a></li>
-          <li><a href="#">강의6</a></li>
-          <li><a href="#">강의7</a></li>
-          <li><a href="#">강의8</a></li>
-          <li><a href="#">강의9</a></li>
-        </ul>
-      </div>
-      
+
+        <div class="review_container" style="width:1500px; margin-left:50px; margin-top:50px;">
+            <div class="row">
+                <!-- left part: course search -->
+                <div class="left" style="background-color:#bbb; ">
+                    <h6 style="text-align:center; color:black;">Course</h6>
+                    <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+                    <ul id="myMenu" th:each="board : ${list}">
+                        <li ><a href="#" th:text="${board.title}" >강의1</a></li>
+<!--th:each="review : ${list_r}"
+th:text="${review.course_name}"-->
+                    </ul>
+                    <ul  >
+                        <li ><a href="#"  >강의1</a></li>
+
+                    </ul>
+                </div>
+
+
+
       <!-- right part: question list -->
       <div class="right" style="background-color:white; padding-left:100px;margin-top:0px;">
         <div class="section search-result-wrap">
           <div class="container">
-            
+
             <div class="row posts-entry">
               <div class="col-lg-8">
-                
+
                 <div class="search-form-wrap mb-4" style="width:400px;">
                   <form action="#" class="sidebar-search-form">
                     <span class="bi-search"></span>
@@ -233,246 +234,181 @@
                   </tr>
                   <!-- 고정질문2 -->
                   <tr class="fixed-question">
-                      <tr>
-                        <td class="date">Apr. 12th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>📌발표가 있나요?</b></a>
-                        </td> 
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
+                      <td>
+                              <div>
+                                  <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                                  <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                                  <span id="commentCount">0</span>
+                                  <h6><a href="single.html"><b>📌발표가 있나요?</b></a></h6>
+                                  <p>내용 중 첫 번째 줄 미리보기</p>
+                              </div>
+                      </td>
                   </tr>
                   <!-- 고정질문3 -->
                   <tr class="fixed-question">
-                      <tr>
-                        <td class="date">Apr. 13th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>📌팀프로젝트는 어떤식으로 진행되나요?</b></a>
-                        </td> 
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
+                    <td>
+                        
+                            <div>
+                                <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                                <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                                <span id="commentCount">0</span>
+                                <h6><a href="single.html"><b>📌팀프로젝트는 어떤식으로 진행되나요?</b></a></h6>
+                                <p>내용 중 첫 번째 줄 미리보기</p>
+                            </div>
+                      
+                    </td>
                   </tr>
                   <!-- 고정질문4 -->
                   <tr class="fixed-question">
-                      <tr>
-                        <td class="date">Apr. 14th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>📌교수님의 강의 스타일이 궁금해요!</b></a>
-                        </td> 
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
-                  </tr>
-                  <!-- 고정질문5 -->
-                  <tr class="fixed-question">
-                      <tr>
-                        <td class="date">Apr. 14th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>📌과제가 많나요?</b></a>
-                        </td> 
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
-                  </tr>
-              
-                  <!-- 여서 부터 일반 질문이여 -->
-                  <tr>
-                      <tr>
-                        <td class="date">Apr. 14th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>질문1</b></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
-                  </tr>
-
-                  <tr>
-                      <tr>
-                        <td class="date">Apr. 14th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>질문2</b></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
-                  </tr>
-
-                  <tr>
-                      <tr>
-                        <td class="date">Apr. 14th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>질문3</b></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
-                  </tr>
-
-                  <tr>
-                      <tr>
-                        <td class="date">Apr. 14th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>질문4</b></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
-                  </tr>
-
-                  <tr>
-                      <tr>
-                        <td class="date">Apr. 14th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>질문5</b></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
-                  </tr>
-
-                  <tr>
-                      <tr>
-                        <td class="date">Apr. 14th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>질문6</b></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
-                  </tr>
-
-                  <tr>
-                      <tr>
-                        <td class="date">Apr. 14th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>질문7</b></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
-                  </tr>
-
-                  <tr>
-                      <tr>
-                        <td class="date">Apr. 14th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>질문8</b></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
-                  </tr>
-
-                  <tr>
-                      <tr>
-                        <td class="date">Apr. 14th, 2022 10:30 &bullet;</td>
-                        <td class="emoji">👍</td>
-                        <td id="likeCount">0</td>
-                        <td class="emoji"> 💬</td>
-                        <td id="commentCount">0</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="single.html"><b>질문9</b></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>내용 중 첫 번째 줄 미리보기</td>
-                      </tr>
-                  </tr>
-
-
+                    <td>
+                            <div>
+                                <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                                <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                                <span id="commentCount">0</span>
+                                <h6><a href="single.html"><b>📌교수님의 강의 스타일이 궁금해요!</b></a></h6>
+                                <p>내용 중 첫 번째 줄 미리보기</p>
+                            </div>
+                      
+                    </td>
+                </tr>
+                <!-- 고정질문5 -->
+                <tr class="fixed-question">
+                  <td>
+                          <div>
+                              <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                              <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                              <span id="commentCount">0</span>
+                              <h6><a href="single.html"><b>📌과제가 많나요?</b></a></h6>
+                              <p>내용 중 첫 번째 줄 미리보기</p>
+                          </div>
+                  </td>
+              </tr>  
+              <tr>
+                <td>
+                        <div>
+                            <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                            <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                            <span id="commentCount">0</span>
+                            <h6><a href="single.html"><b>질문1</b></a></h6>
+                            <p>내용 중 첫 번째 줄 미리보기</p>
+                        </div>
+                </td>
+            </tr>  
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문2</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문3</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문4</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문5</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문6</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문7</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문8</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문9</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문10</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      <div>
+                          <span class="date">Apr. 14th, 2022 10:30 &bullet; </span>
+                          <span class="emoji">👍</span><span id="likeCount">0</span><span class="emoji"> 💬</span>
+                          <span id="commentCount">0</span>
+                          <h6><a href="single.html"><b>질문11</b></a></h6>
+                          <p>내용 중 첫 번째 줄 미리보기</p>
+                      </div>
+              </td>
+            </tr>     
           </table>
-          
-                
-            
-      
+
+
+
+
                 <div class="row text-start pt-5 border-top">
                   <div class="col-md-12">
                     <div>
@@ -497,7 +433,7 @@
     </div>
   </div>
 
-  
+
 <script>
     // 현재 페이지와 한 번에 표시할 질문 수를 추적하는 변수
     let currentPage = 1;
@@ -578,16 +514,16 @@
     updateQuestionVisibility();
   </script>
 
-  
+
 <!-- footer -->
 <footer class="site-footer">
   <div class="container">
     <div class="row mt-5">
       <div class="col-12 text-center">
-        <!-- 
+        <!--
             **==========
-            NOTE: 
-            Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
+            NOTE:
+            Please don't remove this copyright link unless you buy the license here https://untree.co/license/
             **==========
           -->
               <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a> <!-- License information: https://untree.co/license/ --></p>
@@ -621,7 +557,7 @@
         likeCountElement.textContent = likeCount;
     });
   </script>
-  
+
     <!--course search script  -->
     <script>
       function myFunction() {
@@ -653,6 +589,6 @@
     <script src="js/counter.js"></script>
     <script src="js/custom.js"></script>
 
-    
+
   </body>
   </html>

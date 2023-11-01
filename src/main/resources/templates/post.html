@@ -2,7 +2,7 @@
 * 요것은 게시글 페이지
 */ -->
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -83,7 +83,7 @@
       <div class="row same-height justify-content-center">
         <div class="col-md-6">
           <div class="post-entry text-center">
-            <h1 class="mb-4">게시글 제목</h1>
+            <h1 class="mb-4" th:text="${board.title}">제목</h1>
             <div class="post-meta align-items-center text-center">
               <figure class="author-figure mb-0 me-3 d-inline-block"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
               <span class="d-inline-block mt-1">익명n</span>
@@ -109,7 +109,7 @@
                 <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded">
               </div>
             </div>
-            <p>게시글 contents 2</p>
+            <p>게시글 내용이겠죵?</p>
           </div>
 
 
@@ -121,7 +121,7 @@
                 <div class="comment-body">
                   <h3>Jean Doe</h3>
                   <div class="meta">January 9, 2018 at 2:21pm</div>
-                  <p>댓글 1</p>
+                  <p>댓글 1 내용</p>
                   <p><a href="#" class="reply rounded">Reply</a></p>
                 </div>
               </li>
@@ -134,7 +134,7 @@
                   <p><a href="#" class="reply rounded">Reply</a></p>
                 </div>
 
-                <ul class="children">
+                <!-- <ul class="children">
                   <li class="comment">
                     <div class="comment-body">
                       <h3>Jean Doe</h3>
@@ -142,7 +142,6 @@
                       <p>대댓글 1</p>
                       <p><a href="#" class="reply rounded">Reply</a></p>
                     </div>
-
 
                     <ul class="children">
                       <li class="comment">
@@ -156,7 +155,7 @@
                     </ul>
                   
                   </li>
-                </ul>
+                </ul> -->
               </li>
 
               <li class="comment">
@@ -169,8 +168,6 @@
               </li>
             </ul>
             <!-- END comment-list -->
-
-
 
             <div class="comment-form-wrap pt-5">
               <h3 class="mb-5">Leave a comment</h3>
@@ -189,13 +186,47 @@
           </div>
 
         </div>
-
-
       </div>
     </div>
   </section>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+  <!-- jQuery 라이브러리를 추가 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    $(".reply").on("click", function(e) {
+      e.preventDefault();
+      var parentComment = $(this).closest(".comment");
+
+      // 대댓글 입력란이 이미 존재하지 않는 경우에만 생성
+      if (parentComment.find(".reply-form").length === 0) {
+        // 대댓글 입력란을 생성하고 표시
+        var replyForm = $("<div class='reply-form' style='margin-left:80px;'><textarea class='form-control' rows='3' placeholder='Write a reply'></textarea><button class='btn btn-primary post-reply'>Post Reply</button></div>");
+        parentComment.append(replyForm);
+
+        // "Post Reply" 버튼을 누를 때 대댓글을 저장하고 표시
+        parentComment.find(".post-reply").on("click", function() {
+          var replyText = $(this).prev().val();
+          if (replyText) {
+            var replyComment = "<div class='comment' style='margin-left:40px; color:black; '><div class='comment-body'><h3><span style='color: #009AE8;'>↪</span> Your Name</h3><div class='meta'>" + getCurrentDate() + "</div><p>" + replyText + "</p></div></div>";
+            //parentComment.after(replyComment);
+            parentComment.append(replyComment);
+            parentComment.find(".reply-form").remove(); // 입력란 삭제
+          }
+        });
+      }
+    });
+
+    function getCurrentDate() {
+      var now = new Date();
+      var month = now.toLocaleString('en-US', { month: 'long' });
+      return month + " " + now.getDate() + ", " + now.getFullYear() + " at " + now.toLocaleTimeString('en-US');
+    }
+  });
+  </script>
  
 
   <!-- footer -->

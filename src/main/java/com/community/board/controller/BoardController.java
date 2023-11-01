@@ -1,7 +1,9 @@
 package com.community.board.controller;
 
 import com.community.board.entity.Board;
+import com.community.board.entity.Review;
 import com.community.board.service.BoardService;
+import com.community.board.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,17 +15,18 @@ public class BoardController {
 
     @Autowired
     private BoardService boardService;
+    private ReviewService reviewService;
 
     @GetMapping("/")
     public String boardMain(){
 
         return "index";
     }
-    @GetMapping("index.html")
-    public String boardMain_re(){
-
-        return "index";
-    }
+//    @GetMapping("index.html")
+//    public String boardMain_re(){
+//
+//        return "index";
+//    }
 
     @GetMapping("/forum.html")
     public String PostList(Model model){
@@ -32,18 +35,19 @@ public class BoardController {
         return "forum";
     }
 
-//    @GetMapping("forum/write")
-//    public String WritePost(){
-//        return "write";
-//    }
+
 
 
 
     @GetMapping("/blog.html")
-    public String review(){
+    public String review(Model model){
+
+        model.addAttribute("list",boardService.boardList());
+
 
         return "blog";
     }
+
 
     @GetMapping("/write")
     public String writePost(){
@@ -51,13 +55,19 @@ public class BoardController {
         return "write";
     }
 
+    @GetMapping("/forum/post")
+    public String forumView(Model model, Integer id){
+
+        model.addAttribute("board",boardService.boardView(id));
+        return "post";
+    }
 
     @PostMapping("/writeact")
     public String boardWriteAct(Board board){
         boardService.write(board);
 
 
-        return "";
+        return "writeact";
     }
 
 

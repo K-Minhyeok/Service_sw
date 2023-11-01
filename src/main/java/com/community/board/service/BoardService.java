@@ -15,8 +15,14 @@ public class BoardService {
         boardRepository.save(board);
     }
 
-    public List<Board> boardList(){
+    public List<Board> boardList()
+    {
         return boardRepository.findAll();
+    }
+
+    public Board boardView(Integer id){
+
+        return boardRepository.findById(id).get();
     }
 
 }
