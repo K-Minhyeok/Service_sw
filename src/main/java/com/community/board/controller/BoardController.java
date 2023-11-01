@@ -42,7 +42,7 @@ public class BoardController {
     @GetMapping("/blog.html")
     public String review(Model model){
 
-//        model.addAttribute("list",reviewService.reveiwList());
+        model.addAttribute("list",boardService.boardList());
 
 
         return "blog";
@@ -55,6 +55,12 @@ public class BoardController {
         return "write";
     }
 
+    @GetMapping("/forum/post")
+    public String forumView(Model model, Integer id){
+
+        model.addAttribute("board",boardService.boardView(id));
+        return "post";
+    }
 
     @PostMapping("/writeact")
     public String boardWriteAct(Board board){

@@ -2,7 +2,7 @@
 * 요것은 게시글 페이지
 */ -->
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -83,7 +83,7 @@
       <div class="row same-height justify-content-center">
         <div class="col-md-6">
           <div class="post-entry text-center">
-            <h1 class="mb-4">게시글 제목</h1>
+            <h1 class="mb-4" th:text="${board.title}">제목</h1>
             <div class="post-meta align-items-center text-center">
               <figure class="author-figure mb-0 me-3 d-inline-block"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
               <span class="d-inline-block mt-1">By 작성자(or 닉네임)</span>
@@ -103,13 +103,13 @@
         <div class="col-md-12 col-lg-8 main-content">
 
           <div class="post-content-body">
-            <p>게시글 내용이용</p>
+            <p > 게시글 내용이용</p>
             <div class="row my-4">
               <div class="col-md-12 mb-4">
                 <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded">
               </div>
             </div>
-            <p>게시글 내용이겠죵?</p>
+            <p th:text="${board.content}">게시글 내용이겠죵?</p>
           </div>
 
 

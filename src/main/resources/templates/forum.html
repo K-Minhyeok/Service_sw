@@ -100,7 +100,7 @@
                 <div>
                     <span class="date" th:text="${#dates.format(board.regDate, 'yyyy-MM-dd HH:mm:ss')}"></span>
                     <!--    span 에 regDate가 들어가게 만들어야한다.                 -->
-                    <a th:href="@{'/post/' + ${board.id}}"><h5 th:text="${board.title}"></h5></a>
+                    <a th:href="@{/forum/post(id=${board.id})}"><h5 th:text="${board.title}"></h5></a>
                     <p th:text="${board.content}"></p>
                 </div>
             </div>

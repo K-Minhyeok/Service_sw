@@ -18,42 +18,42 @@
 
   <!-- bootstrap link -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  
+
   <link rel="stylesheet" href="css/style.css">
 
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
     }
-    
+
     * {
       box-sizing: border-box;
     }
-    
+
     /* Create a column layout with Flexbox */
     .row {
       display: flex;
-    
+
     }
-    
+
     /* Left column (menu) */
     .left {
       flex: 25%;
       padding: 15px 0;
     }
-    
+
     .left h2 {
       padding-left: 8px;
     }
-    
+
     /* Right column (page content) */
     .right {
       flex: 75%;
       padding: 0px;
       margin-top:-50px;
-      
+
     }
-    
+
     /* Style the search box */
     #mySearch {
       width: 100%;
@@ -61,14 +61,14 @@
       padding: 11px;
       border: 1px solid #ddd;
     }
-    
+
     /* Style the navigation menu inside the left column */
     #myMenu {
       list-style-type: none;
       padding: 0;
       margin: 0;
     }
-    
+
     #myMenu li a {
       padding: 12px;
       text-decoration: none;
@@ -76,13 +76,13 @@
       font-size:14px;
       display: block
     }
-    
+
     #myMenu li a:hover {
       background-color: #eee;
     }
 
-    
-    
+
+
     /* 페이지 버튼 스타일 */
     .pagination {
       list-style: none;
@@ -96,13 +96,13 @@
       margin: 0;
       padding: 0;
       text-align:center;
-      
-    
+
+
     }
 
     .pagination a {
       text-decoration: none;
-    
+
       /* 페이지 버튼 배경색 설정 */
       color: black;
       border-radius: 5px; /* 버튼 모서리를 둥글게 설정 */
@@ -115,7 +115,7 @@
   <!-- bootstrap link -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
-  
+
 
 	<div class="site-mobile-menu site-navbar-target">
 		<div class="site-mobile-menu-header">
@@ -180,20 +180,27 @@
                 <div class="left" style="background-color:#bbb; ">
                     <h6 style="text-align:center; color:black;">Course</h6>
                     <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
-                    <ul id="myMenu" >
-                        <li><a href="#"  >강의1</a></li>
+                    <ul id="myMenu" th:each="board : ${list}">
+                        <li ><a href="#" th:text="${board.title}" >강의1</a></li>
 <!--th:each="review : ${list_r}"
 th:text="${review.course_name}"-->
                     </ul>
+                    <ul  >
+                        <li ><a href="#"  >강의1</a></li>
+
+                    </ul>
                 </div>
+
+
+
       <!-- right part: question list -->
       <div class="right" style="background-color:white; padding-left:100px;margin-top:0px;">
         <div class="section search-result-wrap">
           <div class="container">
-            
+
             <div class="row posts-entry">
               <div class="col-lg-8">
-                
+
                 <div class="search-form-wrap mb-4" style="width:400px;">
                   <form action="#" class="sidebar-search-form">
                     <span class="bi-search"></span>
@@ -202,7 +209,7 @@ th:text="${review.course_name}"-->
                 </div>
 
                 <button id="upload_question_button" style="margin-left:550px; font-size:0.9rem;">질문하기</button>
-              
+
 
                 <!-- 질문 list 여기에 들어감 -->
                 <!-- 현재는 예시를 넣어둔 상태. 나중에는 고정 질문 5개만 남기고, 추가로 올라오는 질문 list는 db를 통해 가져옴 -->
@@ -221,10 +228,10 @@ th:text="${review.course_name}"-->
                   </tr>
 
           </table>
-          
-                
-            
-      
+
+
+
+
                 <div class="row text-start pt-5 border-top">
                   <div class="col-md-12">
                     <div>
@@ -249,7 +256,7 @@ th:text="${review.course_name}"-->
     </div>
   </div>
 
-  
+
 <script>
     // 현재 페이지와 한 번에 표시할 질문 수를 추적하는 변수
     let currentPage = 1;
@@ -330,16 +337,16 @@ th:text="${review.course_name}"-->
     updateQuestionVisibility();
   </script>
 
-  
+
 <!-- footer -->
 <footer class="site-footer">
   <div class="container">
     <div class="row mt-5">
       <div class="col-12 text-center">
-        <!-- 
+        <!--
             **==========
-            NOTE: 
-            Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
+            NOTE:
+            Please don't remove this copyright link unless you buy the license here https://untree.co/license/
             **==========
           -->
               <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a> <!-- License information: https://untree.co/license/ --></p>
@@ -373,7 +380,7 @@ th:text="${review.course_name}"-->
         likeCountElement.textContent = likeCount;
     });
   </script>
-  
+
     <!--course search script  -->
     <script>
       function myFunction() {
@@ -405,6 +412,6 @@ th:text="${review.course_name}"-->
     <script src="js/counter.js"></script>
     <script src="js/custom.js"></script>
 
-    
+
   </body>
   </html>
