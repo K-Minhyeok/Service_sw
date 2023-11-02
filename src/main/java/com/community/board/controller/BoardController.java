@@ -49,7 +49,7 @@ public class BoardController {
     }
 
 
-    @GetMapping("/write")
+    @GetMapping("/write.html")
     public String writePost(){
 
         return "write";
@@ -62,6 +62,8 @@ public class BoardController {
         return "post";
     }
 
+
+
     @PostMapping("/writeact")
     public String boardWriteAct(Board board){
         boardService.write(board);
@@ -69,6 +71,9 @@ public class BoardController {
 
         return "writeact";
     }
+
+
+
 
 
 }
