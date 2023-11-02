@@ -175,18 +175,13 @@
 
 
 <div class="review_container" style="width:1500px; margin-left:50px; margin-top:50px;">
-    <div class="row">
+    <div class="row" style="height: 800px;">
         <!-- left part: course search -->
         <div class="left" style="background-color:#bbb; ">
             <h6 style="text-align:center; color:black;">Course</h6>
             <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
             <ul id="myMenu" th:each="board : ${list}">
-                <li ><a href="#" th:text="${board.title}" >강의1</a></li>
-<!--th:each="review : ${list_r}"
-th:text="${review.course_name}"-->
-                    </ul>
-                    <ul  >
-                        <li ><a href="#"  >강의1</a></li>
+                <li ><a href="#" th:text="${board.title}" ></a></li>
 
             </ul>
         </div>
@@ -470,6 +465,24 @@ th:text="${review.course_name}"-->
 
 
         </table>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+              // 페이지에 처음 들어왔을 때 blog_table과 <div class="row text-start pt-5 border-top">를 숨김
+              document.getElementById("questionTable").style.display = "none";
+              document.querySelector(".row.text-start.pt-5.border-top").style.display = "none";
+              
+              // 각 board list를 클릭할 때 실행되는 함수
+              const boardList = document.querySelectorAll("#myMenu li a");
+              boardList.forEach(function(board) {
+                  board.addEventListener("click", function() {
+                      // 클릭 시 blog_table과 <div class="row text-start pt-5 border-top"> 표시
+                      document.getElementById("questionTable").style.display = "table";
+                      document.querySelector(".row.text-start.pt-5.border-top").style.display = "block";
+                  });
+              });
+          });
+      </script>
 
 
 
