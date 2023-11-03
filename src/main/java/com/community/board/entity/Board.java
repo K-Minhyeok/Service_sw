@@ -16,7 +16,26 @@ public class Board {
     private String title;
 
     private String content;
+
+    public Timestamp getReg_date() {
+        return reg_date;
+    }
+
+    public void setReg_date(Timestamp reg_date) {
+        this.reg_date = reg_date;
+    }
+
     private Timestamp reg_date;
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    private String comment;
 
     public Timestamp getRegDate() {
         return reg_date;

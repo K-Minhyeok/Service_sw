@@ -64,6 +64,8 @@ public class BoardController {
         return "post";
     }
 
+
+
     @PostMapping("/writeact")
     public String boardWriteAct(Board board){
         boardService.write(board);
@@ -71,6 +73,9 @@ public class BoardController {
 
         return "writeact";
     }
+
+
+
 
 
 }
