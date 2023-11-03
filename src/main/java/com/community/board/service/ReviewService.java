@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class ReviewService {
-    @Autowired
+@Autowired
     private ReviewRepository reviewRepository;
 
     public void write(Review review){
@@ -19,8 +19,6 @@ public class ReviewService {
     }
 
     public List<Review> reviewList(){
-
-
         return reviewRepository.findAll();
     }
 

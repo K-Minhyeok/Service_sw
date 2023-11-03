@@ -4,21 +4,33 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "review_list") // 데이터베이스 테이블 이름과 일치시킵니다.
 public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String course_name;
+    private Integer id;
+    public String course_name;
     private String comment;
     private int rate;
-    public String getCourse_name() {
+
+    public String getCourseName() {
         return course_name;
     }
 
-    public void setCourse_name(String course_name) {
+    public void setCourseName(String course_name) {
         this.course_name = course_name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getComment() {

@@ -17,6 +17,11 @@ public class BoardController {
     private BoardService boardService;
     private ReviewService reviewService;
 
+    @Autowired
+    public BoardController(ReviewService reviewService) {
+        this.reviewService = reviewService;
+    }
+
     @GetMapping("/")
     public String boardMain(){
 
@@ -40,16 +45,13 @@ public class BoardController {
 
 
     @GetMapping("/blog.html")
-    public String review(Model model){
-
-        model.addAttribute("list",boardService.boardList());
-
-
+    public String ReviewList(Model model){
+        model.addAttribute("list", reviewService.reviewList());
         return "blog";
     }
 
 
-    @GetMapping("/write")
+    @GetMapping("/write.html")
     public String writePost(){
 
         return "write";

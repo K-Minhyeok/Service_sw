@@ -180,8 +180,8 @@
         <div class="left" style="background-color:#bbb; ">
             <h6 style="text-align:center; color:black;">Course</h6>
             <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
-            <ul id="myMenu" th:each="board : ${list}">
-                <li ><a href="#" th:text="${board.title}" >강의1</a></li>
+            <ul id="myMenu" th:each="review : ${list}">
+                <li ><a href="#" th:text="${review.course_name}" >강의1</a></li>
 
             </ul>
         </div>
